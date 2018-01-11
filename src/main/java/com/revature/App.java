@@ -15,7 +15,7 @@ import com.revature.beans.*;
 public class App {
 
 	@Autowired
-	UserDao userDao;
+	UsersDao usersDao;
 	
 	@Autowired
 	QuizDao quizDao;
@@ -31,14 +31,11 @@ public class App {
 	@Bean
 	public CommandLineRunner runner() {
 		return args -> {
-			/*
-			List<Cave> caves =caveDao.findAll();
-			Cave myCave = caveDao.findByName("Gloworm Cave");
-			List<Cave> myOtherCave = caveDao.findByIdBetween(2, 2);
-			System.out.println(caves.toString());
-			System.out.println(myCave.toString());
-			System.out.println(myOtherCave.toString());
-			*/
+			
+			List<Users> users =usersDao.findAll();
+			Users myUser = usersDao.findByfname("Tester");
+			System.out.println(users.toString());
+			System.out.println(myUser.toString());
 		};
 	}
 

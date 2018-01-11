@@ -6,8 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "USER")
-public class User {
+@Table(name = "USERS")
+public class Users {
 	private int id;
 	private String email;
 	private String password;
@@ -17,7 +17,7 @@ public class User {
 	private String lname;
 
 	@Id
-	@Column(name = "USER_ID")
+	@Column(name = "USERS_ID")
 	public int getId() {
 		return id;
 	}
@@ -26,7 +26,7 @@ public class User {
 		this.id = id;
 	}
 
-	@Column(name = "USER_EMAIL")
+	@Column(name = "USERS_EMAIL")
 	public String getEmail() {
 		return email;
 	}
@@ -35,7 +35,7 @@ public class User {
 		this.email = email;
 	}
 
-	@Column(name = "USER_PASSWORD")
+	@Column(name = "USERS_PASSWORD")
 	public String getPassword() {
 		return password;
 	}
@@ -44,7 +44,7 @@ public class User {
 		this.password = password;
 	}
 
-	@Column(name = "USER_CORRECTANSWERS")
+	@Column(name = "USERS_CORRECTANSWERS")
 	public int getCorrectAnswers() {
 		return correctAnswers;
 	}
@@ -53,7 +53,7 @@ public class User {
 		this.correctAnswers = correctAnswers;
 	}
 
-	@Column(name = "USER_WRONGANSWERS")
+	@Column(name = "USERS_WRONGANSWERS")
 	public int getWrongAnswers() {
 		return wrongAnswers;
 	}
@@ -62,7 +62,7 @@ public class User {
 		this.wrongAnswers = wrongAnswers;
 	}
 
-	@Column(name = "USER_FNAME")
+	@Column(name = "USERS_FNAME")
 	public String getFname() {
 		return fname;
 	}
@@ -71,7 +71,7 @@ public class User {
 		this.fname = fname;
 	}
 
-	@Column(name = "USER_LNAME")
+	@Column(name = "USERS_LNAME")
 	public String getLname() {
 		return lname;
 	}
@@ -82,11 +82,11 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", password=" + password + ", correctAnswers=" + correctAnswers
+		return "Users [id=" + id + ", email=" + email + ", password=" + password + ", correctAnswers=" + correctAnswers
 				+ ", wrongAnswers=" + wrongAnswers + ", fname=" + fname + ", lname=" + lname + "]";
 	}
 
-	public User(int id, String email, String password, int correctAnswers, int wrongAnswers, String fname,
+	public Users(int id, String email, String password, int correctAnswers, int wrongAnswers, String fname,
 			String lname) {
 		super();
 		this.id = id;
@@ -98,7 +98,7 @@ public class User {
 		this.lname = lname;
 	}
 
-	public User() {
+	public Users() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

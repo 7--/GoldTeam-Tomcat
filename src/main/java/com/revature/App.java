@@ -32,9 +32,10 @@ public class App {
 	public CommandLineRunner runner() {
 		return args -> {
 			
-			List<Users> users =usersDao.findAll();
-			Users myUser = usersDao.findByfname("Tester");
-			System.out.println(users.toString());
+			//List<Users> users =usersDao.findAll();
+			//Users myUser = usersDao.findByUserId(1);
+			Users myUser = usersDao.findByEmail("regop412@gmail.com", "p4ssw0rd");
+			//System.out.println(users.toString());
 			System.out.println(myUser.toString());
 		};
 	}

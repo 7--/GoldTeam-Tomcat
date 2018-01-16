@@ -2,13 +2,14 @@ package com.revature.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "QUESTIONS")
 public class Questions {
-	private int id;
+	private int questions_id;
 	private int quiz;
 	private String choice1;
 	private String choice2;
@@ -17,16 +18,17 @@ public class Questions {
 	private int answer;
 
 	@Id
-	@Column(name = "QUESTIONS_ID")
+	@Column(name = "QUESTIONSID")
+	@GeneratedValue
 	public int getId() {
-		return id;
+		return questions_id;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.questions_id = id;
 	}
 
-	@Column(name = "QUESTIONS_QUIZ")
+	@Column(name = "QUIZ")
 	public int getQuiz() {
 		return quiz;
 	}
@@ -35,7 +37,7 @@ public class Questions {
 		this.quiz = quiz;
 	}
 
-	@Column(name = "QUESTIONS_CHOICE1")
+	@Column(name = "CHOICE1")
 	public String getChoice1() {
 		return choice1;
 	}
@@ -44,7 +46,7 @@ public class Questions {
 		this.choice1 = choice1;
 	}
 
-	@Column(name = "QUESTIONS_CHOICE2")
+	@Column(name = "CHOICE2")
 	public String getChoice2() {
 		return choice2;
 	}
@@ -53,7 +55,7 @@ public class Questions {
 		this.choice2 = choice2;
 	}
 
-	@Column(name = "QUESTIONS_CHOICE3")
+	@Column(name = "CHOICE3")
 	public String getChoice3() {
 		return choice3;
 	}
@@ -62,7 +64,7 @@ public class Questions {
 		this.choice3 = choice3;
 	}
 
-	@Column(name = "QUESTIONS_CHOICE4")
+	@Column(name = "CHOICE4")
 	public String getChoice4() {
 		return choice4;
 	}
@@ -71,7 +73,7 @@ public class Questions {
 		this.choice4 = choice4;
 	}
 
-	@Column(name = "QUESTIONS_ANSWER")
+	@Column(name = "ANSWER")
 	public int getAnswer() {
 		return answer;
 	}
@@ -82,13 +84,12 @@ public class Questions {
 
 	@Override
 	public String toString() {
-		return "Questions [id=" + id + ", quiz=" + quiz + ", choice1=" + choice1 + ", choice2=" + choice2 + ", choice3="
+		return "Questions [id=" + questions_id + ", quiz=" + quiz + ", choice1=" + choice1 + ", choice2=" + choice2 + ", choice3="
 				+ choice3 + ", choice4=" + choice4 + ", answer=" + answer + "]";
 	}
 
-	public Questions(int id, int quiz, String choice1, String choice2, String choice3, String choice4, int answer) {
+	public Questions(int quiz, String choice1, String choice2, String choice3, String choice4, int answer) {
 		super();
-		this.id = id;
 		this.quiz = quiz;
 		this.choice1 = choice1;
 		this.choice2 = choice2;

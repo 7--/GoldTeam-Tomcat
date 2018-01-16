@@ -2,26 +2,28 @@ package com.revature.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "QUIZ")
 public class Quiz {
-	private int id;
+	private int quiz_id;
 	private String name;
 
 	@Id
-	@Column(name = "QUIZ_ID")
+	@Column(name = "QUIZID")
+	@GeneratedValue
 	public int getId() {
-		return id;
+		return quiz_id;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.quiz_id = id;
 	}
 
-	@Column(name = "QUIZ_NAME")
+	@Column(name = "NAME")
 	public String getName() {
 		return name;
 	}
@@ -32,12 +34,11 @@ public class Quiz {
 
 	@Override
 	public String toString() {
-		return "Quiz [id=" + id + ", name=" + name + "]";
+		return "Quiz [id=" + quiz_id + ", name=" + name + "]";
 	}
 
-	public Quiz(int id, String name) {
+	public Quiz(String name) {
 		super();
-		this.id = id;
 		this.name = name;
 	}
 

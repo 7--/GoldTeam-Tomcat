@@ -2,16 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.revature</groupId>
-<<<<<<< HEAD
 	<artifactId>Project2withSpringData</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Project2withSpringData</name>
-=======
-	<artifactId>goldteam-tomcat</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>Project2withSpringData</name>
-	<packaging>war</packaging>
->>>>>>> 2455605b73364328f3bb5af962e95b687ab483fc
+
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -54,7 +48,7 @@
 
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5.1</version>
+				<version>3.5.1</version><!--$NO-MVN-MAN-VER$-->
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>

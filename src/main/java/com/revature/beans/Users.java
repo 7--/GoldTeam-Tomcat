@@ -3,12 +3,14 @@ package com.revature.beans;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "USERS")
 public class Users {
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
 	private String email;
 	private String password;
@@ -19,7 +21,7 @@ public class Users {
 
 	@Id
 	@Column(name = "USERID")
-	@GeneratedValue
+	
 	public int getUserId() {
 		return userId;
 	}

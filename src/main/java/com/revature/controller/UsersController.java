@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.Users;
@@ -16,7 +16,7 @@ import com.revature.repository.UsersDao;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/api")
+@RequestMapping(value = "/api")
 public class UsersController {
 
 	@Autowired
@@ -28,29 +28,55 @@ public class UsersController {
 		return users;
 	}
 
-/*	@GetMapping(value = "/login/{email}/{password}/", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Users login(@PathVariable("email") String email, @PathVariable("password") String password) {
-		Users user = usersDao.findByLogin(email, password);
-		return user;
+	@GetMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
+	public String login(@RequestParam(value = "email", required = true) String email,
+			@RequestParam(value = "password", required = false) String password) {
+		Users myUser = usersDao.findByEmail(email);
+		if (myUser == null) {
+			return "{\"validuser\":\"false\"}";
+		}
+		String myPassword = myUser.getPassword();
+		if (myPassword.equals(password)) {
+			return "{\"validuser\":\"true\"}";
+		} else {
+			return "{\"validuser\":\"false\"}";
+		}
+
 	}
-*/
-	@GetMapping(value = "/register/{email}/{password}/{fname}/{lname}/", produces = MediaType.APPLICATION_JSON_VALUE)
-	public void register(@PathVariable("email") String email, @PathVariable("password") String password,
-			@PathVariable("fname") String fname, @PathVariable("lname") String lname) {
+	
+	@GetMapping(value = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
+	public void register(Users newuser) {
+
+		System.out.println(newuser.toString());
+
+		newuser = usersDao.save(newuser);
+		
+		System.out.println(newuser.toString());
+	}
+	
+	/*
+	@GetMapping(value = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
+	public void register(@RequestParam(value = "email", required = true) String email, 
+			@RequestParam(value = "password", required = true) String password,
+			@RequestParam(value = "fname", required = true) String fname, 
+			@RequestParam(value = "lname", required = true) String lname) {
 
 		Users user = new Users(email, password, 0, 0, fname, lname);
 
 		usersDao.save(user);
 	}
-/*
-	@GetMapping(value = "/updateUser/{userid}/{email}/{password}/{correctAnswer}/{wrongAnswer}/{fname}/{lname}/", produces = MediaType.APPLICATION_JSON_VALUE)
-	public void update_user(@PathVariable("userid") int userid, @PathVariable("email") String email,
-			@PathVariable("password") String password, @PathVariable("correctAnswer") int correctAnswer,
-			@PathVariable("wrongAnswer") int wrongAnswer, @PathVariable("fname") String fname,
-			@PathVariable("lname") String lname) {
+	*/
+	
+	@GetMapping(value = "/updateUser", produces = MediaType.APPLICATION_JSON_VALUE)
+	public void update_user(@RequestParam("userid") int userid, 
+			@RequestParam(value = "email", required = true) String email,
+			@RequestParam(value = "password", required = false) String password, 
+			@RequestParam(value = "correctAnswer", required = false) int correctAnswer,
+			@RequestParam(value = "wrongAnswer", required = false) int wrongAnswer, 
+			@RequestParam(value = "fname", required = false) String fname,
+			@RequestParam(value = "lname", required = false) String lname) {
 
-		Users user = usersDao.findByUser_id(userid);
-
+		Users user = usersDao.findByUserId(userid);
 		user.setEmail(email);
 		user.setPassword(password);
 		user.setCorrectAnswers(correctAnswer);
@@ -60,12 +86,12 @@ public class UsersController {
 
 		usersDao.save(user);
 	}
-	
-	@GetMapping(value = "/deleteUser/{userid}/", produces = MediaType.APPLICATION_JSON_VALUE)
-	public void delete_user(@PathVariable("userid") int userid) {
 
-		Users user = usersDao.findByUser_id(userid);
+	@GetMapping(value = "/deleteUser", produces = MediaType.APPLICATION_JSON_VALUE)
+	public void delete_user(@RequestParam(value = "userid", required = true) int userid) {
 
+		Users user = usersDao.findByUserId(userid);
 		usersDao.delete(user);
-	} */
+	}
+
 }

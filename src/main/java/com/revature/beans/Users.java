@@ -5,32 +5,41 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "USERS")
 public class Users {
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int userId;
-	private String email;
-	private String password;
-	private int correctAnswers;
-	private int wrongAnswers;
-	private String fname;
-	private String lname;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userSeq")
+	@SequenceGenerator(allocationSize = 1, name = "userSeq", sequenceName = "userSeq")
 	@Column(name = "USERID")
-	
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int id) {
-		this.userId = id;
-	}
+	private int userid;
 
 	@Column(name = "EMAIL")
+	private String email;
+
+	@Column(name = "PASSWORD")
+	private String password;
+
+	@Column(name = "CORRECTANSWERS")
+	private int correctAnswers;
+
+	@Column(name = "WRONGANSWERS")
+	private int wrongAnswers;
+
+	@Column(name = "FIRSTNAME")
+	private String fname;
+
+	@Column(name = "LASTNAME")
+	private String lname;
+
+	public int getUserId() {
+		return userid;
+	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -39,7 +48,6 @@ public class Users {
 		this.email = email;
 	}
 
-	@Column(name = "PASSWORD")
 	public String getPassword() {
 		return password;
 	}
@@ -48,7 +56,6 @@ public class Users {
 		this.password = password;
 	}
 
-	@Column(name = "CORRECTANSWERS")
 	public int getCorrectAnswers() {
 		return correctAnswers;
 	}
@@ -66,7 +73,6 @@ public class Users {
 		this.wrongAnswers = wrongAnswers;
 	}
 
-	@Column(name = "FIRSTNAME")
 	public String getFname() {
 		return fname;
 	}
@@ -75,7 +81,6 @@ public class Users {
 		this.fname = fname;
 	}
 
-	@Column(name = "LASTNAME")
 	public String getLname() {
 		return lname;
 	}
@@ -86,13 +91,13 @@ public class Users {
 
 	@Override
 	public String toString() {
-		return "Users [id=" + userId + ", email=" + email + ", password=" + password + ", correctAnswers=" + correctAnswers
-				+ ", wrongAnswers=" + wrongAnswers + ", fname=" + fname + ", lname=" + lname + "]";
+		return "Users [id=" + userid + ", email=" + email + ", password=" + password + ", correctAnswers="
+				+ correctAnswers + ", wrongAnswers=" + wrongAnswers + ", fname=" + fname + ", lname=" + lname + "]";
 	}
 
-	public Users(String email, String password, int correctAnswers, int wrongAnswers, String fname,
-			String lname) {
+	public Users(String email, String password, int correctAnswers, int wrongAnswers, String fname, String lname) {
 		super();
+		// this.userId = GeneratedValue;
 		this.email = email;
 		this.password = password;
 		this.correctAnswers = correctAnswers;
@@ -103,7 +108,6 @@ public class Users {
 
 	public Users() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 }

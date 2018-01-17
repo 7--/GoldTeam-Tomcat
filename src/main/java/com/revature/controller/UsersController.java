@@ -43,40 +43,27 @@ public class UsersController {
 		}
 
 	}
-	
+
 	@GetMapping(value = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
 	public void register(Users newuser) {
 
 		System.out.println(newuser.toString());
 
 		newuser = usersDao.save(newuser);
-		
+
 		System.out.println(newuser.toString());
 	}
-	
-	/*
-	@GetMapping(value = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
-	public void register(@RequestParam(value = "email", required = true) String email, 
-			@RequestParam(value = "password", required = true) String password,
-			@RequestParam(value = "fname", required = true) String fname, 
-			@RequestParam(value = "lname", required = true) String lname) {
 
-		Users user = new Users(email, password, 0, 0, fname, lname);
-
-		usersDao.save(user);
-	}
-	*/
-	
 	@GetMapping(value = "/updateUser", produces = MediaType.APPLICATION_JSON_VALUE)
-	public void update_user(@RequestParam("userid") int userid, 
+	public void update_user(@RequestParam("userid") int userid,
 			@RequestParam(value = "email", required = true) String email,
-			@RequestParam(value = "password", required = false) String password, 
+			@RequestParam(value = "password", required = false) String password,
 			@RequestParam(value = "correctAnswer", required = false) int correctAnswer,
-			@RequestParam(value = "wrongAnswer", required = false) int wrongAnswer, 
+			@RequestParam(value = "wrongAnswer", required = false) int wrongAnswer,
 			@RequestParam(value = "fname", required = false) String fname,
 			@RequestParam(value = "lname", required = false) String lname) {
 
-		Users user = usersDao.findByUserId(userid);
+		Users user = usersDao.findByUserid(userid);
 		user.setEmail(email);
 		user.setPassword(password);
 		user.setCorrectAnswers(correctAnswer);
@@ -90,7 +77,7 @@ public class UsersController {
 	@GetMapping(value = "/deleteUser", produces = MediaType.APPLICATION_JSON_VALUE)
 	public void delete_user(@RequestParam(value = "userid", required = true) int userid) {
 
-		Users user = usersDao.findByUserId(userid);
+		Users user = usersDao.findByUserid(userid);
 		usersDao.delete(user);
 	}
 

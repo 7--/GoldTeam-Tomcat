@@ -4,32 +4,47 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "QUESTION")
 public class Questions {
 
-	private int questions_id;
-	private int quiz;
-	private String choice1;
-	private String choice2;
-	private String choice3;
-	private String choice4;
-	private int answer;
-
 	@Id
 	@Column(name = "QUESTIONSID")
 	@GeneratedValue
+	private int questionsid;
+
+	@Column(name = "QUIZ")
+	private int quiz;
+
+	@Column(name = "QUESTION")
+	private String question;
+
+	@Column(name = "CHOICE1")
+	private String choice1;
+
+	@Column(name = "CHOICE2")
+	private String choice2;
+
+	@Column(name = "CHOICE3")
+	private String choice3;
+
+	@Column(name = "CHOICE4")
+	private String choice4;
+
+	@Column(name = "ANSWER")
+	private int answer;
+
 	public int getId() {
-		return questions_id;
+		return questionsid;
 	}
 
 	public void setId(int id) {
-		this.questions_id = id;
+		this.questionsid = id;
 	}
 
-	@Column(name = "QUIZ")
 	public int getQuiz() {
 		return quiz;
 	}
@@ -38,7 +53,6 @@ public class Questions {
 		this.quiz = quiz;
 	}
 
-	@Column(name = "CHOICE1")
 	public String getChoice1() {
 		return choice1;
 	}
@@ -47,7 +61,6 @@ public class Questions {
 		this.choice1 = choice1;
 	}
 
-	@Column(name = "CHOICE2")
 	public String getChoice2() {
 		return choice2;
 	}
@@ -56,7 +69,6 @@ public class Questions {
 		this.choice2 = choice2;
 	}
 
-	@Column(name = "CHOICE3")
 	public String getChoice3() {
 		return choice3;
 	}
@@ -65,7 +77,6 @@ public class Questions {
 		this.choice3 = choice3;
 	}
 
-	@Column(name = "CHOICE4")
 	public String getChoice4() {
 		return choice4;
 	}
@@ -74,7 +85,6 @@ public class Questions {
 		this.choice4 = choice4;
 	}
 
-	@Column(name = "ANSWER")
 	public int getAnswer() {
 		return answer;
 	}
@@ -83,15 +93,26 @@ public class Questions {
 		this.answer = answer;
 	}
 
-	@Override
-	public String toString() {
-		return "Questions [id=" + questions_id + ", quiz=" + quiz + ", choice1=" + choice1 + ", choice2=" + choice2 + ", choice3="
-				+ choice3 + ", choice4=" + choice4 + ", answer=" + answer + "]";
+	public String getQuestion() {
+		return question;
 	}
 
-	public Questions(int quiz, String choice1, String choice2, String choice3, String choice4, int answer) {
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+
+	@Override
+	public String toString() {
+		return "Questions [questions_id=" + questionsid + ", quiz=" + quiz + ", question=" + question + ", choice1="
+				+ choice1 + ", choice2=" + choice2 + ", choice3=" + choice3 + ", choice4=" + choice4 + ", answer="
+				+ answer + "]";
+	}
+
+	public Questions(int quiz, String question, String choice1, String choice2, String choice3, String choice4,
+			int answer) {
 		super();
 		this.quiz = quiz;
+		this.question = question;
 		this.choice1 = choice1;
 		this.choice2 = choice2;
 		this.choice3 = choice3;
@@ -101,7 +122,6 @@ public class Questions {
 
 	public Questions() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 }

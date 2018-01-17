@@ -8,6 +8,6 @@ import com.revature.beans.Quiz;
 @Repository
 public interface QuizDao extends JpaRepository<Quiz, Integer> {
 
-	Quiz findById(int quiz_id);
+	Quiz findByQuizid(int quiz_id);
 
 }

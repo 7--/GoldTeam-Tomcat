@@ -4,26 +4,29 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Quiz")
 public class Quiz {
-	private int quiz_id;
-	private String name;
 
 	@Id
 	@Column(name = "QUIZID")
 	@GeneratedValue
+	private int quizid;
+
+	@Column(name = "NAME")
+	private String name;
+
 	public int getId() {
-		return quiz_id;
+		return quizid;
 	}
 
 	public void setId(int id) {
-		this.quiz_id = id;
+		this.quizid = id;
 	}
 
-	@Column(name = "NAME")
 	public String getName() {
 		return name;
 	}
@@ -34,7 +37,7 @@ public class Quiz {
 
 	@Override
 	public String toString() {
-		return "Quiz [id=" + quiz_id + ", name=" + name + "]";
+		return "Quiz [id=" + quizid + ", name=" + name + "]";
 	}
 
 	public Quiz(String name) {

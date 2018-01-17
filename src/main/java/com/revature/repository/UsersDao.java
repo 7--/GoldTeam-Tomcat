@@ -8,6 +8,6 @@ import com.revature.beans.Users;
 
 @Repository
 public interface UsersDao extends JpaRepository<Users, Integer> {
-	Users findByUserId(int id);
+	Users findByUserid(int id);
 	Users findByEmail(String email);
 }

@@ -23,7 +23,7 @@ public class QuizController {
 
 	@GetMapping(value = "/Quiz", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Quiz getQuiz(@PathVariable("quiz_id") int quiz_id) {
-		Quiz quiz = quizDao.findById(quiz_id);
+		Quiz quiz = quizDao.findByQuizid(quiz_id);
 		return quiz;
 	}
 	
@@ -37,7 +37,7 @@ public class QuizController {
 	@GetMapping(value = "/updateQuiz/{quiz_id}/{email}/{password}/{correctAnswer}/{wrongAnswer}/{fname}/{lname}/", produces = MediaType.APPLICATION_JSON_VALUE)
 	public void update_quiz(@PathVariable("quiz_id") int quiz_id, @PathVariable("name") String name) {
 
-		Quiz quiz = quizDao.findById(quiz_id);
+		Quiz quiz = quizDao.findByQuizid(quiz_id);
 		quiz.setName(name);
 		quizDao.save(quiz);
 	}
@@ -45,7 +45,7 @@ public class QuizController {
 	@GetMapping(value = "/deleteQuiz/{quiz_id}/", produces = MediaType.APPLICATION_JSON_VALUE)
 	public void delete_quiz(@PathVariable("quiz_id") int quiz_id) {
 
-		Quiz quiz = quizDao.findById(quiz_id);
+		Quiz quiz = quizDao.findByQuizid(quiz_id);
 		quizDao.delete(quiz);
 	}
 }

@@ -54,6 +54,7 @@ public class UsersController {
 		System.out.println(newuser.toString());
 	}
 
+	/*
 	@GetMapping(value = "/updateUser", produces = MediaType.APPLICATION_JSON_VALUE)
 	public void update_user(@RequestParam("userid") int userid,
 			@RequestParam(value = "email", required = true) String email,
@@ -80,5 +81,7 @@ public class UsersController {
 		Users user = usersDao.findByUserid(userid);
 		usersDao.delete(user);
 	}
+	
+	*/
 
 }

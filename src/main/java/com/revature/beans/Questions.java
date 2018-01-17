@@ -3,8 +3,10 @@ package com.revature.beans;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -12,9 +14,10 @@ import javax.persistence.Table;
 public class Questions {
 
 	@Id
-	@Column(name = "QUESTIONSID")
-	@GeneratedValue
-	private int questionsid;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "questionSeq")
+	@SequenceGenerator(allocationSize = 1, name = "questionSeq", sequenceName = "SQ_QUESTION_PK")
+	@Column(name = "QUESTIONID")
+	private int questionid;
 
 	@Column(name = "QUIZ")
 	private int quiz;
@@ -38,11 +41,11 @@ public class Questions {
 	private int answer;
 
 	public int getId() {
-		return questionsid;
+		return questionid;
 	}
 
 	public void setId(int id) {
-		this.questionsid = id;
+		this.questionid = id;
 	}
 
 	public int getQuiz() {
@@ -103,7 +106,7 @@ public class Questions {
 
 	@Override
 	public String toString() {
-		return "Questions [questions_id=" + questionsid + ", quiz=" + quiz + ", question=" + question + ", choice1="
+		return "Questions [questions_id=" + questionid + ", quiz=" + quiz + ", question=" + question + ", choice1="
 				+ choice1 + ", choice2=" + choice2 + ", choice3=" + choice3 + ", choice4=" + choice4 + ", answer="
 				+ answer + "]";
 	}

@@ -3,8 +3,10 @@ package com.revature.beans;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -12,8 +14,9 @@ import javax.persistence.Table;
 public class Quiz {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "quizSeq")
+	@SequenceGenerator(allocationSize = 1, name = "quizSeq", sequenceName = "SQ_QUIZ_PK")
 	@Column(name = "QUIZID")
-	@GeneratedValue
 	private int quizid;
 
 	@Column(name = "NAME")

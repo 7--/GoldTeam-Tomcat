@@ -65,5 +65,6 @@ INCREMENT BY 1;
 
 drop table Users;
 /
-INSERT INTO Users(UserId, Email, uPassword, CorrectAnswers, WrongAnswers, FirstName, LastName) VALUES (1,'regop412@gmail.com2', 'p4ssw0rd',0,0,'Philip','Rego');
+select * from users;
+INSERT INTO Users(UserId, Email, uPassword, CorrectAnswers, WrongAnswers, FirstName, LastName) VALUES (3,'regop412@gmail.com', 'p4ssw0rd',0,0,'Philip','Rego');
 /

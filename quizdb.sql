@@ -1,19 +1,27 @@
+
+
+
+
+
 CREATE TABLE Quiz
 (
-    QuizId NUMBER GENERATED ALWAYS as IDENTITY(START with 1 INCREMENT by 1),
+    QuizId NUMBER,
     Name VARCHAR2(160) NOT NULL,
     
     CONSTRAINT PK_Quiz PRIMARY KEY  (QuizId)
 );
+CREATE SEQUENCE SQ_QUIZ_PK
+START WITH 1
+INCREMENT BY 1;
 /
-INSERT INTO Quiz(Name) VALUES ('Sports');
-INSERT INTO Quiz(Name) VALUES ('Science');
+INSERT INTO Quiz(QuizId,Name) VALUES (1,'Sports');
+INSERT INTO Quiz(QuizId,Name) VALUES (2,'Science');
 /
 SELECT * FROM Quiz;
 
 CREATE TABLE Question 
 (
-    QuestionId NUMBER GENERATED ALWAYS as IDENTITY(START with 1 INCREMENT by 1),
+    QuestionId NUMBER,
     Quiz Number NOT NULL,
     Question VARCHAR2(2000),
     Choice1 VARCHAR2(1000),
@@ -28,16 +36,20 @@ CREATE TABLE Question
 ALTER TABLE Question ADD CONSTRAINT FK_QuestionQuiz
     FOREIGN KEY (Quiz) REFERENCES Quiz(QuizId);
 /
-INSERT INTO Question(Quiz, Question, Choice1, Choice2, Choice3, Choice4, Answer) VALUES (1, 'Which QB has the most playoff wins?', 'Joe Montana', 'Peyton Manning', 'Tom Brady', 'Johnny Unitas', 3);
+CREATE SEQUENCE SQ_Question_PK
+START WITH 1
+INCREMENT BY 1;
+/
+INSERT INTO Question(QuestionId, Quiz, Question, Choice1, Choice2, Choice3, Choice4, Answer) VALUES (1, 1, 'Which QB has the most playoff wins?', 'Joe Montana', 'Peyton Manning', 'Tom Brady', 'Johnny Unitas', 3);
 /
 SELECT * FROM Question;
 
 
 CREATE TABLE Users
 (
-    UserId NUMBER GENERATED ALWAYS as IDENTITY(START with 1 INCREMENT by 1),
+    UserId NUMBER,
     Email VARCHAR2(160) NOT NULL,
-    Password VARCHAR2(160) NOT NULL,
+    uPassword VARCHAR2(160) NOT NULL,
     CorrectAnswers NUMBER,
     WrongAnswers NUMBER,
     FirstName VARCHAR2(160),
@@ -46,6 +58,12 @@ CREATE TABLE Users
     CONSTRAINT PK_Users PRIMARY KEY  (UserId)
 );
 /
-INSERT INTO Users( Email, Password, CorrectAnswers, WrongAnswers, FirstName, LastName) VALUES ('regop412@gmail.com', 'p4ssw0rd',0,0,'Philip','Rego');
+
+CREATE SEQUENCE SQ_Users_PK
+START WITH 1
+INCREMENT BY 1;
+
+drop table Users;
 /
-SELECT * FROM Users;
+INSERT INTO Users(UserId, Email, uPassword, CorrectAnswers, WrongAnswers, FirstName, LastName) VALUES (1,'regop412@gmail.com2', 'p4ssw0rd',0,0,'Philip','Rego');
+/

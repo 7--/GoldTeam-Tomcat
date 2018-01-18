@@ -14,14 +14,14 @@ public class Users {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userSeq")
-	@SequenceGenerator(allocationSize = 1, name = "userSeq", sequenceName = "userSeq")
+	@SequenceGenerator(allocationSize = 1, name = "userSeq", sequenceName = "SQ_USERS_PK")
 	@Column(name = "USERID")
 	private int userid;
 
 	@Column(name = "EMAIL")
 	private String email;
 
-	@Column(name = "PASSWORD")
+	@Column(name = "UPASSWORD")
 	private String password;
 
 	@Column(name = "CORRECTANSWERS")

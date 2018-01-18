@@ -1,32 +1,48 @@
 package com.revature.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.Questions;
 import com.revature.repository.QuestionsDao;
 
+@RestController
+@CrossOrigin
+@RequestMapping(value = "/api")
 public class QuestionsController {
 
 	@Autowired
 	QuestionsDao questionsDao;
 
-	@GetMapping(value = "/Questions", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/questions", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Questions> getQuestions() {
 		List<Questions> Questions = questionsDao.findAll();
 		return Questions;
 	}
 
-	@GetMapping(value = "/Question", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Questions getQuestion(@PathVariable("questions_id") int questions_id) {
-		Questions question = questionsDao.findByQuestionsid(questions_id);
+	@GetMapping(value = "/question", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Questions getQuestion(@RequestParam(value = "questionid", required = true) int questionid) {
+		Questions question = questionsDao.findByQuestionid(questionid);
 		return question;
 	}
+	
+	@GetMapping(value = "/questionslist", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Questions> getQuestionsByQuiz(@RequestParam(value = "quiz", required = true) int quizid) {
+		List<Questions> questions = questionsDao.findByQuiz(quizid);
+		
+		return questions;
+	}
 
+	/*
 	@GetMapping(value = "/addQuestions/{quiz}/{question}/{choice1}/{choice2}/{choice3}/{choice4}/{answer}/", produces = MediaType.APPLICATION_JSON_VALUE)
 	public void addQuestions(@PathVariable("quiz") int quiz,
 			@PathVariable("question") String question, 
@@ -67,4 +83,5 @@ public class QuestionsController {
 		Questions questions = questionsDao.findByQuestionsid(questions_id);
 		questionsDao.delete(questions);
 	}
+	*/
 }

@@ -22,9 +22,9 @@ public class UsersController {
 	@Autowired
 	UsersDao usersDao;
 
-	@GetMapping(value = "/Users", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Users> getUsers() {
-		List<Users> users = usersDao.findAll();
+		List<Users> users = usersDao.findAllByOrderByCorrectAnswersDesc();
 		return users;
 	}
 
@@ -54,23 +54,16 @@ public class UsersController {
 		System.out.println(newuser.toString());
 	}
 
-	/*
+	
 	@GetMapping(value = "/updateUser", produces = MediaType.APPLICATION_JSON_VALUE)
-	public void update_user(@RequestParam("userid") int userid,
-			@RequestParam(value = "email", required = true) String email,
-			@RequestParam(value = "password", required = false) String password,
-			@RequestParam(value = "correctAnswer", required = false) int correctAnswer,
-			@RequestParam(value = "wrongAnswer", required = false) int wrongAnswer,
-			@RequestParam(value = "fname", required = false) String fname,
-			@RequestParam(value = "lname", required = false) String lname) {
+	public void update_user(@RequestParam(value = "userid", required = true) int userid,
+			@RequestParam(value = "correctAnswers", required = true) int correctAnswer,
+			@RequestParam(value = "wrongAnswers", required = true) int wrongAnswer) {
 
 		Users user = usersDao.findByUserid(userid);
-		user.setEmail(email);
-		user.setPassword(password);
+
 		user.setCorrectAnswers(correctAnswer);
 		user.setWrongAnswers(wrongAnswer);
-		user.setFname(fname);
-		user.setLname(lname);
 
 		usersDao.save(user);
 	}
@@ -81,7 +74,5 @@ public class UsersController {
 		Users user = usersDao.findByUserid(userid);
 		usersDao.delete(user);
 	}
-	
-	*/
 
 }

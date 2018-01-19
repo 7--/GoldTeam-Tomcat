@@ -31,12 +31,7 @@ public class App extends SpringBootServletInitializer {
     @Bean
     public CommandLineRunner runner() {
         return args -> {
-
-            // List<Users> users =usersDao.findAll();
-            // Users myUser = usersDao.findByUserId(1);
-            // Users myUser = usersDao.findByEmail("regop412@gmail.com");
-            // System.out.println(users.toString());
-            // System.out.println(myUser.toString());
+        	
         };
     }
 

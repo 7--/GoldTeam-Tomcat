@@ -29,29 +29,33 @@ public class UsersController {
 	}
 
 	@GetMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
-	public String login(@RequestParam(value = "email", required = true) String email,
+	public Users login(@RequestParam(value = "email", required = true) String email,
 			@RequestParam(value = "password", required = false) String password) {
 		Users myUser = usersDao.findByEmail(email);
 		if (myUser == null) {
-			return "{\"validuser\":\"false\"}";
+			//return "{\"validuser\":\"false\"}";
+			return null;
 		}
 		String myPassword = myUser.getPassword();
 		if (myPassword.equals(password)) {
-			return "{\"validuser\":\"true\"}";
+			//return "{\"validuser\":\"true\"}";
+			return myUser;
 		} else {
-			return "{\"validuser\":\"false\"}";
+			//return "{\"validuser\":\"false\"}";
+			return null;
 		}
 
 	}
 
 	@GetMapping(value = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
-	public void register(Users newuser) {
+	public void register(@RequestParam(value = "email", required = true) String email,
+			@RequestParam(value = "password", required = true) String password,
+			@RequestParam(value = "fname", required = true) String fname,
+			@RequestParam(value = "lname", required = true) String lname) {
 
-		System.out.println(newuser.toString());
+		Users newuser = new Users(email, password, 0, 0, fname, lname);
 
 		newuser = usersDao.save(newuser);
-
-		System.out.println(newuser.toString());
 	}
 
 	

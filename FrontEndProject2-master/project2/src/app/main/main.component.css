@@ -1,0 +1,112 @@
+﻿.body{
+	font-family:"Enriqueta", "serif";
+	background: #5c7685;
+	overflow:hidden;
+}
+.SelectQuizLeaderboardWrapper{
+	background: #5c7685;
+	height: 100%;
+
+}
+.SelectQuiz{
+	float: left;
+	box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1);
+	background: white;
+	width: 25%;
+	display:block;
+	font-family: "Enriqueta", "serif";
+
+	
+}
+.quizButtons{
+	font-size: 1.7em;
+}
+.SelectQuiz h1{
+	text-align: center;
+}
+#quiz4{
+	margin-bottom:5%;
+}
+.container{
+	width: 100%;
+	padding-bottom: 4%;
+	padding-top: 4%;
+	text-align:center;
+	
+	display: block;
+}
+.MultipleChoiceWrapper{
+	display:inline-block;
+	background: #5c7685;
+	height: 100%;
+	width: 100%;
+
+}
+.questionlabel:hover{
+	background-color: #bf9b30;
+	cursor: pointer;
+	padding-right: 10%;
+	padding-left: 10%;
+	transform: 	scale(1.2);
+	box-shadow: 7px 10px 0px rgba(0, 0, 0, 0.1);
+	
+}
+
+.Question{
+	background: #c8c2ae;
+	display:block;
+	width: 50%;
+	height: 100%;
+	float: left;
+	font-size: 2em;
+	font-family:"Enriqueta", "serif";
+	padding-bottom: 2%;
+	box-shadow: 3px 55px 0px rgba(0, 0, 0, 0.1);
+	border-top: 10px solid white;
+}
+.Account{
+	background: white;
+	display:block;
+	width: 25%;
+	float: right;
+	height: 100%;
+	padding-top: 2.5%;
+	
+	
+}
+.awd{
+	height: 100%;
+}
+.Leaderboard{
+	width: 25%;
+	display:block;
+	float:right;
+	text-align: center;
+	background: white;
+	height: 50%;
+	font-family:"Enriqueta", serif;
+}
+h1:after{
+	content: "";
+	background: #111b24;
+	height: 3px;
+	display:block;
+	width: 100px;
+	border-radius: 2px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5%;
+}
+#Leaderboard{
+	color: #bf9b30;
+	text-shadow: 1.3px 1.3px #998100;
+}
+
+#questionId{
+	font-size: 1em;
+}
+
+.row{
+	margin-top: 5%;
+}
+

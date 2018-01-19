@@ -1,0 +1,42 @@
+﻿.nav-quiz-wrapper{
+	margin-top:0;
+	margin-right:19%;
+	margin-left:19%;
+	
+	
+}
+.navMenu{
+	font-family: "Ubuntu","sans-serif";
+	font-size: 1.1em;
+	background-color: transparent;
+	color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color .3s;
+	
+}
+
+.caret{
+	color: #3fbfad;
+	size: 2em;
+}
+
+.btn{
+	background-color: #070f12;
+	
+}
+.btn:hover{
+	color:#3fbfad;
+}
+.navMenu:hover{
+	color: #3fbfad;
+}
+
+.presentState, .presentState:hover{
+	background: #3fbfad;
+	color:white ;
+
+}
+.presentState:hover{
+	color: white !important; 
+}

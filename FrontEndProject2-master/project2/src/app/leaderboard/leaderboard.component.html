@@ -1,0 +1,9 @@
+﻿<div style="text-align:center" class="Leaderboard">
+  <h1 id="Leaderboard">Leaderboard</h1>
+  <ul style="list-style-type:none">
+      <li *ngFor="let l of leader; index as i">
+      {{i+1}} {{l.fname}} {{l.lname}} {{l.correctAnswers}}
+      </li>
+    </ul>
+</div>
+  

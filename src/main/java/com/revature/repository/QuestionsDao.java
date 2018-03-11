@@ -9,7 +9,8 @@ import com.revature.beans.Questions;
 
 @Repository
 public interface QuestionsDao extends JpaRepository<Questions, Integer> {
-	
-	Questions findByQuestionid(int questionid);
-	List<Questions> findByQuiz(int quiz);
+
+    Questions findByQuestionid(int questionid);
+
+    List<Questions> findByQuiz(int quiz);
 }

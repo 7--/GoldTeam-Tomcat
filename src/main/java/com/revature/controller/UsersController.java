@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,32 +32,31 @@ public class UsersController {
 			@RequestParam(value = "password", required = false) String password) {
 		Users myUser = usersDao.findByEmail(email);
 		if (myUser == null) {
-			//return "{\"validuser\":\"false\"}";
+			// return "{\"validuser\":\"false\"}";
 			return null;
 		}
 		String myPassword = myUser.getPassword();
 		if (myPassword.equals(password)) {
-			//return "{\"validuser\":\"true\"}";
+			// return "{\"validuser\":\"true\"}";
 			return myUser;
 		} else {
-			//return "{\"validuser\":\"false\"}";
+			// return "{\"validuser\":\"false\"}";
 			return null;
 		}
 
 	}
 
 	@GetMapping(value = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
-	public void register(@RequestParam(value = "email", required = true) String email,
+	public Users register(@RequestParam(value = "email", required = true) String email,
 			@RequestParam(value = "password", required = true) String password,
 			@RequestParam(value = "fname", required = true) String fname,
 			@RequestParam(value = "lname", required = true) String lname) {
 
 		Users newuser = new Users(email, password, 0, 0, fname, lname);
 
-		newuser = usersDao.save(newuser);
+		return usersDao.save(newuser);
 	}
 
-	
 	@GetMapping(value = "/updateUser", produces = MediaType.APPLICATION_JSON_VALUE)
 	public void update_user(@RequestParam(value = "userid", required = true) int userid,
 			@RequestParam(value = "correctAnswers", required = true) int correctAnswer,

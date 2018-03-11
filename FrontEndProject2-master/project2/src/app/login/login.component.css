@@ -1,0 +1,161 @@
+﻿.login-box-wrapper {
+    
+    
+}
+
+.login-box, .reimbursement-box {
+    border: 3px solid #070f12;
+    box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    border-radius: 10px;
+    width: 60%;
+    height: 76%;
+    margin-left: 20%;
+   
+    display: inline-block;
+    animation: slideInFromBottom ease 2s;
+    animation-iteration-count: 1;
+    transform-origin: 50% 50%;
+    animation-fill-mode:forwards; 
+	opacity:0;
+    opacity: 1\9;
+    
+}
+
+
+#login-input {
+    
+    width: 40%;
+    padding: 10.9px;
+    margin: 0;
+    float: left;
+    height: 100%;
+    vertical-align: middle;
+    margin-top: 1.5%;
+
+}
+
+#reimbursement-input {
+    border: 5px solid orange;
+    width: 60%;
+    padding: 35px;
+    margin-right: 25%;
+    margin-left: 25%;
+    text-align: center;
+    height: 100%;
+    background: #fff;
+    z-index: 1;
+}
+
+.form-control {
+    width: 80%;
+}
+
+#slider-container {
+    padding: 0;
+    height: 70%;
+    float: right;
+    width: 60%;
+    margin: 0;
+    position: relative;
+}
+
+.slider-wrapper {
+
+    overflow: hidden;
+}
+
+.slideshow {
+    width: 1950px;
+    
+    margin: 0 0 0 -1300px;
+    position: relative;
+    
+}
+
+.slideshow img {
+    width: 650px;
+    height: 100%;
+}
+
+.slide {
+    height: 100%;
+    width: 650px;
+    float: left;
+}
+
+.welcome {
+    color: #070f12;
+    text-align: center;
+    font-weight: bold;
+}
+
+.welcome:after {
+    content: "";
+    height: 3px;
+    width: 100px;
+    background: #bf9b30;
+    display: block;
+    margin-top: 10%;
+    border-radius: 2px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn.btn-login.float-right {
+    float: right;
+    background: #070f12;
+    color: white;
+}
+
+.btn.btn-login.float-right:hover, .sub:hover, .reset:hover {
+    background: #bf9b30;
+    color: #070f12;
+}
+
+.sub, .reset {
+    margin-top: 4px;
+}
+
+.sub {
+    float: right;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    background: #DE6262;
+    color: white;
+}
+
+.reset {
+    border-radius: 4px;
+    border: 1px solid transparent;
+    float: right;
+    background: #DE6262;
+    color: white;
+    margin-right: 7px;
+}
+
+.acceptbutton{
+    text-decoration:none;
+}
+.rejectbutton{
+    text-decoration:none;
+    
+}
+.submitreimburse{
+    text-decoration:none;
+}
+.register {
+    text-align: center;
+    font: 14px/1.5 Arial, Helvetica, sans-serif;
+    margin-top: 8.5%;
+    width: 100%;
+    display: inline-block;
+}
+
+#signuplink {
+    text-decoration: none;
+    font-weight: bolder;
+    color: #bf9b30;
+}
+
+

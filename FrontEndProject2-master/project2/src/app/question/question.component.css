@@ -1,0 +1,64 @@
+.MultipleChoiceWrapper{
+	display:inline-block;
+	background: #5c7685;
+	height: 100%;
+	width: 100%;
+
+}
+.questionlabel:hover{
+	
+	
+	cursor: pointer;
+	padding-right: 10%;
+	padding-left: 10%;
+	
+	font-weight: bold;
+	transform: scale(1.5);
+}
+
+.Question{
+	background: #ededed;
+	display:block;
+	width: 50%;
+	height: 100%;
+	float: left;
+	font-size: 2em;
+	font-family:"Ubuntu","sans-serif";
+	border: 5px solid #070f12;
+	padding-bottom: 5%;
+	margin-top:0;
+	color: #070f12;
+	animation: slideInFromBottom ease 2s;
+    animation-iteration-count: 1;
+    transform-origin: 50% 50%;
+    animation-fill-mode:forwards; 
+	opacity:0;
+    opacity: 1\9;
+}
+
+h1:after{
+	content: "";
+	background: #111b24;
+	height: 3px;
+	display:block;
+	width: 100px;
+	border-radius: 2px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5%;
+}
+
+.awd{
+	height: 100%;
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        opacity:0;
+        transform:  translate(0px,40px)  ;
+    }
+    100% {
+        opacity:1;
+        transform:  translate(0px,0px)  ;
+    }
+}

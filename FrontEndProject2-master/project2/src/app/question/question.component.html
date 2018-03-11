@@ -1,0 +1,20 @@
+﻿<div class="Question">
+  <div style="text-align:center" class="awd">
+    <div class = "row" *ngIf="!show">
+      <h3>Quiz Completed! Please select another quiz to take</h3>
+    </div>
+    <div class="row" *ngIf="show">
+      <div class="col-lg-12"><h1 id="questionId">{{question}}</h1></div>
+    </div>
+    <div class="row" *ngIf="show">
+      <div class="col-lg-6" ><label class="questionlabel" (click)="questionAnswered(1)" for="question1">a) {{option1}}</label></div>
+      <div class="col-lg-6" ><label class="questionlabel" (click)="questionAnswered(2)" for="question2">b) {{option2}}</label></div>		
+    </div>
+    <br>
+    <div class="row" *ngIf="show">
+      <div class="col-lg-6" ><label class="questionlabel" (click)="questionAnswered(3)" for="question3">c) {{option3}}</label></div>
+      <div class="col-lg-6" ><label class="questionlabel" (click)="questionAnswered(4)" for="question4">d) {{option4}}</label></div>
+    </div>
+  </div>
+  
+</div>

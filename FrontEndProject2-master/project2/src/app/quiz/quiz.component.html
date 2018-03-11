@@ -1,0 +1,24 @@
+﻿<div style="border: 3px solid blue; " class="MultipleChoiceWrapper">
+				<div class="Question">
+					<div style="border: 3px solid red; text-align:center" class="awd">
+						<div class="row">
+							<div class="col-lg-12"><h1>{{question}}</h1></div>
+						</div>
+						<div class="row">
+					    	<div class="col-lg-6" (click)="questionAnswered(1)">a) {{option1}}</div>
+					   		<div class="col-lg-6" (click)="questionAnswered(2)">b) {{option2}}</div>		
+						</div>
+					  	<div class="row">
+					    	<div class="col-lg-6" (click)="questionAnswered(3)">c) {{option3}}</div>
+					    	<div class="col-lg-6" (click)="questionAnswered(4)">d) {{option4}}</div>
+					   	</div>
+					</div>
+					
+				</div>
+                	<div style="border: 3px solid pink; text-align:center" class="Account">
+			<h1>Account</h1>
+			<h2>Account Earned</h2>
+			<h3>Score: 0/10</h3>
+	</div>
+</div>
+       

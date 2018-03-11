@@ -1,0 +1,32 @@
+﻿<div class="login-box-wrapper"> 
+            <div class="reimbursement-box">
+                <div id="reimbursement-input">
+                    <h2 class="welcome"> Welcome! Please register your information!</h2>
+
+                    <form id="ReimbursementForm" action="Proj1Controller" method="get">
+                    <div class="form-group">
+                            <label for="Grade" class="text-uppercase">Email</label>
+                            <input style="width: 100%;" type="email" class="form-control" placeholder="" name="Email" [(ngModel)]="email" name="email">
+                    </div>  
+                    <div class="form-group">
+                        <label for="Grade" class="text-uppercase">Password</label>
+                        <input style="width: 100%;" type="text" class="form-control" placeholder="" name="Password" [(ngModel)]="password" name="password">
+                    </div>
+                       <div class="form-group">
+                            <label for="Grade" class="text-uppercase">Firstname</label>
+                            <input style="width: 100%;" type="text" class="form-control" placeholder="" name="Firstname" [(ngModel)]="first" name="first">
+                        </div>
+                        <div class="form-group">
+                            <label for="Grade" class="text-uppercase">Lastname</label>
+                            <input style="width: 100%;" type="text" class="form-control" placeholder="" name="Lastname" [(ngModel)]="last" name="last">
+                        </div>
+                       
+                        <div class="form-check">
+                            <button type="submit" class="sub" (click)="register()">Submit</button>
+                            <input  type="reset" class="reset">
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>

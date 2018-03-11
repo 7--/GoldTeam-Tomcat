@@ -1,0 +1,33 @@
+﻿<div class="nav-quiz-wrapper">
+			
+			<div  class="btn-group btn-group-justified" role="group" aria-label="...">
+                <!--
+				<div class="btn-group" role="group">
+					
+					<button type="button" class="btn dropdown-toggle" routerLink='/quizzes'  aria-haspopup="true" aria-expanded="false">
+						<span class="navMenu">Quizzes</span>
+						<span class="caret"></span>
+						<span class="sr-only">Toggle Dropdown</span>
+					</button>
+			    		<ul class="dropdown-menu dropdown-menu-right">
+			    			<li><a href="#">Quiz 1</a></li>
+			    			<li><a href="#">Quiz 2</a></li> 
+			    			<li><a href="#">Quiz 3</a></li>
+			    			<li><a href="#">Quiz 4</a></li>
+			    		</ul>
+				</div>
+                -->
+				<div class="btn-group" role="group">
+					<button type="button" routerLink='/' routerLinkActive='presentState' [routerLinkActiveOptions]="{exact:true}" class="btn "><span class="navMenu" >Home</span></button>
+				</div>
+				<div class="btn-group" role="group">
+					<button type="button" routerLink='/login' routerLinkActive='presentState' class="btn "><span class="navMenu">Login</span></button>
+				</div>
+				<div class="btn-group" role="group">
+					<button type="button" routerLink='/register' routerLinkActive='presentState' class="btn "><span class="navMenu">Sign Up</span></button>
+				</div>
+                <div class="btn-group" role="group">
+					<button type="button" routerLink='/about' routerLinkActive='presentState' class="btn "><span class="navMenu">About</span></button>
+				</div>
+			</div>
+           

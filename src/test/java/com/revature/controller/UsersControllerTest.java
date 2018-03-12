@@ -11,20 +11,21 @@ import com.revature.beans.Users;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class UsersControllerTest {
-	UsersController usersController;
 
 	@BeforeAll
 	public void init() {
-		this.usersController = new UsersController();
+		System.out.println("init run");
 	}
 
 	@Test
 	public void register_test() {
 		String email = "test@gmail.com";
-		String password = "bitconnect";
-		String fname = "Trevon";
+		String password = "password";
+		String fname = "John";
 		String lname = "James";
-		Users newUser = usersController.register(email, password, fname, lname);
+
+		UsersController u = new UsersController();
+		Users newUser = u.register(email, password, fname, lname);
 		assertEquals(newUser.getFname(), fname);
 	}
 }
